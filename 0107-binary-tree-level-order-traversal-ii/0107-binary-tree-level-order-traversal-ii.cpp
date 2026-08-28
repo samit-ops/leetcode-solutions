@@ -1,0 +1,48 @@
+class Solution {
+public:
+    vector<vector<int>> levelOrderBottom(TreeNode* root) {
+        vector<vector<int>> result;
+
+        if (root == nullptr) {
+            return result;
+        }
+
+        queue<TreeNode*> q;
+        stack<vector<int>> s;
+
+        q.push(root);
+
+        while (!q.empty()) {
+            int levelSize = q.size();
+            vector<int> currentLevel;
+
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode* currentNode = q.front();
+                q.pop();
+
+                currentLevel.push_back(currentNode->val);
+
+                if (currentNode->left != nullptr) {
+                    q.push(currentNode->left);
+                }
+
+                if (currentNode->right != nullptr) {
+                    q.push(currentNode->right);
+                }
+            }
+
+            s.push(currentLevel);
+        }
+
+        while (!s.empty()) {
+            result.push_back(s.top());
+            s.pop();
+        }
+
+        return result;
+    }
+};
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
