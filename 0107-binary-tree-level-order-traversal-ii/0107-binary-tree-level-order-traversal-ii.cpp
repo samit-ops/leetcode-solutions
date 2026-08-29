@@ -31,14 +31,14 @@ public:
                 }
             }
 
-            s.push(currentLevel);
+            result.push_back(currentLevel);
         }
 
-        while (!s.empty()) {
-            result.push_back(s.top());
-            s.pop();
-        }
-
+        // while (!s.empty()) {
+        //     result.push_back(s.top());
+        //     s.pop();
+        // }
+        reverse(result.begin(),result.end());
         return result;
     }
 };
