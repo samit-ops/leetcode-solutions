@@ -8,7 +8,6 @@ public:
         }
 
         queue<TreeNode*> q;
-        stack<vector<int>> s;
 
         q.push(root);
 
@@ -34,10 +33,6 @@ public:
             result.push_back(currentLevel);
         }
 
-        // while (!s.empty()) {
-        //     result.push_back(s.top());
-        //     s.pop();
-        // }
         reverse(result.begin(),result.end());
         return result;
     }
