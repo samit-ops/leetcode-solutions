@@ -3,12 +3,12 @@ private:
     void bfs(queue<pair<int,int>>&q, vector<vector<int>>&distance, vector<vector<int>>&mat){
         int n = mat.size();
         int m = mat[0].size();
+        int delrow[] = {-1, 0, 1, 0};
+        int delcol[] = {0, 1, 0, -1};
         while(!q.empty()){
             int row = q.front().first;
             int col = q.front().second;
             q.pop();
-            int delrow[] = {-1, 0, 1, 0};
-            int delcol[] = {0, 1, 0, -1};
             for(int i=0; i<4; i++){
                 int nrow = row + delrow[i];
                 int ncol = col + delcol[i];
